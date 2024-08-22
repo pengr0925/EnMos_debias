@@ -37,7 +37,7 @@ Most of the requirements of this projects are exactly the same as [DECOUPLING](h
   * `cd data/iNaturalist18`, Generate image name files with this [script](data/iNaturalist18/gen_lists.py) or use the existing ones [[here](data/iNaturalist18)].
 
 - Cifar_10/100_LT
-  * 
+  
 Change the `data_root` in `main.py` accordingly.
   
 ### Training
