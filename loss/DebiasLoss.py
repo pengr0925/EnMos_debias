@@ -28,13 +28,14 @@ class DebiasLoss(nn.Module):
 
 
     def forward(self, logits, targets, *args):
-        # logits = logits + torch.log(torch.tensor(np.array(self.class_bias) + 1e-12,
-        #                                          dtype=torch.float32,
-        #                                          device='cuda')).detach()
-
-        logits = logits - torch.log(torch.tensor(np.array(self.class_bias_1) + 1e-12,
+        logits = logits + torch.log(torch.tensor(np.array(self.class_bias) + 1e-12,
                                                  dtype=torch.float32,
                                                  device='cuda')).detach()
+
+        # post-hoc
+        # logits = logits - torch.log(torch.tensor(np.array(self.class_bias_1) + 1e-12,
+        #                                          dtype=torch.float32,
+        #                                          device='cuda')).detach()
 
         return self.criterion(logits, targets)
 
